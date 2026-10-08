@@ -1,0 +1,12 @@
+font-family = "UDEV Gothic NF"
+font-family-bold = "UDEV Gothic NF Bold"
+font-family-italic = "UDEV Gothic NF Italic"
+font-family-bold-italic = "UDEV Gothic NF BoldItalic"
+font-size = 12
+window-height = 35
+window-width = 165
+window-padding-x = 5
+window-padding-y = 5
+theme = Chalk
+scrollback-limit = 20971520
+shell-integration-features = ssh-terminfo,ssh-env
