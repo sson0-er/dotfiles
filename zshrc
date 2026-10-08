@@ -61,3 +61,6 @@ if [[ $OSTYPE == darwin* ]]; then
 else
 	alias ls='ls --color=auto'
 fi
+alias g='git'
+alias d='docker'
+
