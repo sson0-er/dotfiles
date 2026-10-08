@@ -1,0 +1,18 @@
+set nocompatible
+set background=dark
+syntax on
+set mouse-=a
+set backspace=indent,eol,start
+set nobackup
+set noswapfile
+set showcmd
+set paste
+set ts=4
+set showmatch
+set laststatus=2
+set ignorecase
+set smartcase
+set incsearch
+set wrapscan
+set hlsearch
+nmap <Esc><Esc> :noh<CR><Esc>
