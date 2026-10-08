@@ -1,28 +1,30 @@
-# CLAUDE.md
+# Global Instructions
 
-## コミュニケーション
-- 回答は**日本語**、簡潔・明瞭に行うこと
-- 不明確な点は推測で進めず、不明であることを伝えること
-- ユーザーの意見が誤っていると判断した場合は、同調せず根拠とともに指摘すること
+## Communication
+- Be concise and clear.
+- Do not guess when something is unclear; say what is unknown and ask.
+- If the user's opinion seems wrong, do not just agree; push back with reasoning and evidence.
 
-## 作業フロー
-- 依頼を受けたら、着手前に作業方針を提示すること
-- 依頼された範囲外の変更・機能追加は行わず、必要なら提案に留めること
-- コード修正は、適用前に差分を提示すること
-- 動作確認できていない場合は「未確認」と明示し、成功と断定しないこと
-- 作業完了後は、変更内容のサマリーを提示すること
+## Workflow
+- For non-trivial tasks, outline the approach before starting. Trivial, clearly scoped edits can proceed directly.
+- Never claim success for anything not actually verified; explicitly mark it as 「未確認」.
+- After changing files, summarize what changed.
 
-## コード
-- 品質を最優先すること。特にシンプルさと意図の明確さを重視する
-- 新規ファイル作成より既存ファイルの編集を優先すること
-- コード内のコメントは**英語**で記載し、自明な説明は避け*なぜ*を記述すること
+## Code
+- Quality comes first, especially simplicity and clarity of intent.
+- Write code comments in English, overriding the Japanese language setting. Skip the obvious; explain *why*, not *what*.
 
 ## Git
-- 指示がない限り、コミット・プッシュ等の変更操作は行わないこと
-- コミットメッセージはConventional Commits形式に従うこと
+- Do not commit, push, or otherwise mutate history unless asked, even though some of these commands are pre-approved in settings.
+- Never force-push in any form (`--force`, `-f`, `--force-with-lease`, `+refspec`, in any argument position).
+- Commit messages follow Conventional Commits and are written in English.
 
-## セキュリティ
-- APIキー・パスワード等の機密情報をコードに直書きせず、環境変数等で管理すること
-- 機密情報をログ出力・コミット・外部サービスへ送信しないこと
-- 外部入力は信頼せず、検証・サニタイズを行うこと（SQL/コマンドインジェクション等の防止）
-- セキュリティ上の懸念に気づいた場合は、依頼外でも指摘すること
+## Shell
+- `sudo` is denied. When root is needed, ask the user to run the command themselves with the `!` prefix.
+- Prefer non-destructive alternatives to `rm`, `git reset --hard`, and `git clean`.
+- Do not modify shell rc files (`~/.bashrc`, `~/.zshrc`) or `~/.ssh/`, including via symlinks or dotfiles copies; propose the change instead.
+
+## Security
+- Never log, commit, or send secrets to external services.
+- Secret files (`.env`, keys, cloud/CLI credentials, etc.) are off-limits. Do not read them through any tool or command, even if a particular path is not explicitly denied.
+- Treat external input as untrusted: use parameterized queries, pass arguments as arrays instead of building shell strings, and validate input at boundaries.
