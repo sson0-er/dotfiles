@@ -1,0 +1,20 @@
+[user]
+	name = Shoma Sonoda
+	email = shoma.sonoda@ever-rise.co.jp
+	username = sson0-er
+[alias]
+	co = checkout
+	st = status
+	force-push = push --force-with-lease
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
+[checkout]
+	defaultRemote = origin
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
